@@ -1,0 +1,94 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "49769f7a-15aa-45db-a645-2754a51c45b6",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://viacep.com.br/ws/70160-900/json/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "ad7cccd1-8fa7-4e05-99df-a5a613ec0165",
+      "name": "Consulta de CEP"
+    },
+    {
+      "parameters": {
+        "url": "=https://viacep.com.br/ws/{{ $json.uf }}/{{ $json.localidade }}/{{ $json.logradouro }}/json/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "26e7ff74-6d75-4530-8d26-17cc7c6dd16b",
+      "name": "Busca por endereço"
+    },
+    {
+      "parameters": {
+        "content": "## Exemplos de CEP\n01001-000\n22041-001\n59090-000\n70160-900\n40026-280"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -384,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "df8261f4-8174-4dda-88ed-5394bc9a7b87",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Consulta de CEP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta de CEP": {
+      "main": [
+        [
+          {
+            "node": "Busca por endereço",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "eaab217c-58be-4b8d-86f0-5171b92e6ba7",
+  "meta": {
+    "instanceId": "79ac365a169d115558e45606882b96f1bde677920813ab67256c521fac10c4c7"
+  },
+  "id": "7txVRJFY0CQKCpxYpJhI_",
+  "tags": []
+}
