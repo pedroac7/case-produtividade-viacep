@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "da57706e-1d2d-4354-8efa-6ede2fcfec5b",
+		"name": "ViaCEP - Pedro Cursino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39556231"
+	},
+	"item": [
+		{
+			"name": "Consulta de CEP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/01001000/json/",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"01001000",
+						"json",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisa por endereço",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/RN/Natal/Roberto Freire/json/",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"RN",
+						"Natal",
+						"Roberto Freire",
+						"json",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
